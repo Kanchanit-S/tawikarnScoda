@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "ออกแบบ",
+    "icon": "ui-theme",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce efficitur congue erat ac molestie."
+  },
+  {
+    "id": 2,
+    "title": "ผลิตชิ้นงาน",
+    "icon": "print",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce efficitur congue erat ac molestie."
+  },
+  {
+    "id": 3,
+    "title": "ติดตั้ง",
+    "icon": "tools-bag",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce efficitur congue erat ac molestie."
+  }
+]
