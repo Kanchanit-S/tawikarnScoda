@@ -51,7 +51,7 @@ const FooterOne = () => (
                   </li>
                   <li>
                     <i className="icofont icofont-globe"></i>
-                    <a href={process.env.PUBLIC_URL}>www.tawikarn2019.com</a>
+                    <a href={process.env.PUBLIC_URL}>www.tawikarn.com</a>
                   </li>
                 </ul>
               </div>

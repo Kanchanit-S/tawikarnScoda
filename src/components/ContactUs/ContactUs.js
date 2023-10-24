@@ -6,7 +6,10 @@ const ContactUs = forwardRef((props, ref) => (
   <section className="contact-us white-bg" id="contact" ref={ref}>
     <div className="container">
       <div className="row align-items-center">
-        <div className="bg-flex-right col-md-6 map-section p-5">
+        <div className="col-6 col-sm-12 col-12 col-lg-6 mb-4">
+          <ContactForm title="ปรึกษาเราได้ที่" />
+        </div>
+        <div className="col-6 col-sm-12 col-12 col-lg-6" style={{height : '500px'}}>
           <iframe
             style={{ width: "100%", height: "100%" }}
             className="gmap_iframe"
@@ -16,9 +19,6 @@ const ContactUs = forwardRef((props, ref) => (
             marginwidth="0"
             src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=ร้านป้ายลพบุรี บริษัท ทวิกานต์&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
           ></iframe>
-        </div>
-        <div className="col-about-left col-md-6 text-left">
-          <ContactForm title="ปรึกษาเราได้ที่" />
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
 [
     {
         "id": 1,
-        "title": "Home",
+        "title": "ไวนิล",
         "link": "/",
-        "colsTitle": "Home layout",
+        "colsTitle": "ไวนิล",
         "itemsPerCol": 5,
-        "megaMenu": true,
+        "megaMenu": false,
         "subMenu": [
             {
                 "id": 1.1,
@@ -111,7 +111,7 @@
     },
     {
         "id": 2,
-        "title": "Pages",
+        "title": "สติ๊กเกอร์",
         "link": "/pages",
         "megaMenu": false,
         "subMenu": [

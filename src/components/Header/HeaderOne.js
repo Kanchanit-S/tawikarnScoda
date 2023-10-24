@@ -1,14 +1,17 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Icofont from "react-icofont";
-import Scrollspy from "react-scrollspy";
-import dataNav from "../../data/Navbar/nav-construction.json";
 import DropdownMenu from "../Navs/DropdownMenu";
+import AttributeNav from "../Navs/AttributeNav";
 import MainLogo from "../MainLogo";
+import { Button } from "react-bootstrap";
+import "./HeaderOne.css";
+import logoLine from "../../assets/images/LINE_Brand_icon.png";
 
-const HeaderOne = ({ type, scrollToSection }) => {
+const HeaderOne = ({ type }) => {
   const [show, setShow] = useState(false);
   const [fixed, setFixed] = useState(false);
   const [collapse, setCollapse] = useState(false);
+  const [screenSize, setScreenSize] = useState(getCurrentDimension());
 
   const showMenu = () => {
     setCollapse(!collapse);
@@ -24,13 +27,25 @@ const HeaderOne = ({ type, scrollToSection }) => {
     }
   }, []);
 
+  function getCurrentDimension() {
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  }
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-
+    const updateDimension = () => {
+      setScreenSize(getCurrentDimension());
+    };
+    window.addEventListener("resize", updateDimension);
+    console.log("screenSize", screenSize);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateDimension);
     };
-  }, [handleScroll]);
+  }, [screenSize, handleScroll]);
 
   return (
     <>
@@ -40,7 +55,7 @@ const HeaderOne = ({ type, scrollToSection }) => {
           (fixed || type === "white" ? "" : "navbar-transparent")
         }
       >
-        <div className="container">
+        <div className="container" style={{ width: "100%" }}>
           <button
             type="button"
             className={"navbar-toggler " + (collapse ? "collapsed" : "")}
@@ -51,6 +66,28 @@ const HeaderOne = ({ type, scrollToSection }) => {
             <Icofont icon="navigation-menu" />
           </button>
           <MainLogo showMenu={showMenu} />
+          {/* <DropdownMenu /> */}
+
+          {screenSize.width < 992 ? (
+            <>
+              <a href="https://lin.ee/95qRzxt">
+                <img src={logoLine} style={{ maxHeight: "40px" }} />
+              </a>
+            </>
+          ) : (
+            <>
+              <AttributeNav>
+                <a href="https://lin.ee/95qRzxt">
+                  <Button
+                    className="btn btn-success line-id-btn"
+                    style={{ background: "#00B900", border: "0px" }}
+                  >
+                    Line ID : @tawi
+                  </Button>
+                </a>
+              </AttributeNav>
+            </>
+          )}
         </div>
       </nav>
     </>

@@ -9,12 +9,14 @@ import CTAOne from "../components/CTA/CTAOne";
 import FooterOne from "../components/Footer/FooterOne";
 import WhoWeAreTwo from "../components/WhoWeAre/WhoWeAreOne";
 import ContactUs from "../components/ContactUs/ContactUs";
+import AboutRestaurant from "../components/AboutUs/AboutRestaurant";
 
 const   CreativePortfolio = ({ ref }) => (
   <Loader>
     <HeaderOne />
     <HeroSliderCreative data={dataCreative} />
-    <WhoWeAreTwo title="Who we are" tagline="The world at your fingertips"/>
+    <AboutRestaurant/>
+    {/* <WhoWeAreTwo title="Who we are" tagline="The world at your fingertips"/> */}
     <PortfolioMasonry
       filter="true"
       columns="3"
