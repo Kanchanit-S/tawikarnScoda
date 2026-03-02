@@ -1,7 +1,8 @@
 import React, { forwardRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
+import "swiper/css";
 import SliderButtons from "../../elements/SliderButtons/SliderButtons";
+import loadImage from "../../utils/imageLoader";
 
 const RestaurantSlider = forwardRef(({ data }, ref) => (
   <section className="pt-0 pb-0" id="home" ref={ref}>
@@ -13,8 +14,7 @@ const RestaurantSlider = forwardRef(({ data }, ref) => (
               <div
                 className="slide-img"
                 style={{
-                  background: `url(${require("../../assets/images/" +
-                    slide.image)}) center center / cover scroll no-repeat`,
+                  background: `url(${loadImage(slide.image)}) center center / cover scroll no-repeat`,
                 }}
               ></div>
               <div

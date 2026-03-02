@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import LineLogo from "../../assets/images/LINE_Brand_icon.png";
-import facebookLogo from "../../assets/images/Facebook_Logo_2019.png"
+import LineLogo from "../../assets/images/LINE_Brand_icon.webp";
+import facebookLogo from "../../assets/images/Facebook_Logo_2019.webp";
 const ContactForm = ({ title, tagline }) => {
   const [inputs, setInputs] = useState({});
 
@@ -33,7 +33,7 @@ const ContactForm = ({ title, tagline }) => {
       )}
       <div className="mt-5 row align-items-center">
         <div className="col-3">
-          <img src={LineLogo} style={{ maxHeight: "100px" }} />
+          <img src={LineLogo} style={{ maxHeight: "100px" }} alt="LINE" loading="lazy" />
         </div>
         <div className="col-9">
           <h1><a href='https://lin.ee/95qRzxt' style={{color: '#000'}}>@tawi</a></h1>
@@ -41,7 +41,7 @@ const ContactForm = ({ title, tagline }) => {
       </div>
       <div className="mt-5 row align-items-center">
         <div className="col-3">
-          <img src={facebookLogo} style={{ maxHeight: "100px" }} />
+          <img src={facebookLogo} style={{ maxHeight: "100px" }} alt="Facebook" loading="lazy" />
         </div>
         <div className="col-9">
           <h2><a href='https://www.facebook.com/thawikarn1' style={{color: '#000'}}>ร้านป้ายลพบุรี บริษัท ทวิกานต์</a></h2>

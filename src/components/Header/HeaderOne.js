@@ -1,17 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
-import Icofont from "react-icofont";
-import DropdownMenu from "../Navs/DropdownMenu";
+import Icofont from "../Icofont";
 import AttributeNav from "../Navs/AttributeNav";
 import MainLogo from "../MainLogo";
-import { Button } from "react-bootstrap";
 import "./HeaderOne.css";
-import logoLine from "../../assets/images/LINE_Brand_icon.png";
+import logoLine from "../../assets/images/LINE_Brand_icon.webp";
 
 const HeaderOne = ({ type }) => {
-  const [show, setShow] = useState(false);
   const [fixed, setFixed] = useState(false);
   const [collapse, setCollapse] = useState(false);
-  const [screenSize, setScreenSize] = useState(getCurrentDimension());
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
 
   const showMenu = () => {
     setCollapse(!collapse);
@@ -20,32 +17,18 @@ const HeaderOne = ({ type }) => {
   };
 
   const handleScroll = useCallback(() => {
-    if (window.pageYOffset > 34) {
-      setFixed(true);
-    } else {
-      setFixed(false);
-    }
+    setFixed(window.pageYOffset > 34);
   }, []);
 
-  function getCurrentDimension() {
-    return {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
-  }
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    const updateDimension = () => {
-      setScreenSize(getCurrentDimension());
-    };
-    window.addEventListener("resize", updateDimension);
-    console.log("screenSize", screenSize);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    const handleResize = () => setIsMobile(window.innerWidth < 992);
+    window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", updateDimension);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [screenSize, handleScroll]);
+  }, [handleScroll]);
 
   return (
     <>
@@ -66,24 +49,22 @@ const HeaderOne = ({ type }) => {
             <Icofont icon="navigation-menu" />
           </button>
           <MainLogo showMenu={showMenu} />
-          {/* <DropdownMenu /> */}
-
-          {screenSize.width < 992 ? (
+          {isMobile ? (
             <>
               <a href="https://lin.ee/95qRzxt">
-                <img src={logoLine} style={{ maxHeight: "40px" }} />
+                <img src={logoLine} style={{ maxHeight: "40px" }} alt="LINE" loading="lazy" />
               </a>
             </>
           ) : (
             <>
               <AttributeNav>
                 <a href="https://lin.ee/95qRzxt">
-                  <Button
+                  <button
                     className="btn btn-success line-id-btn"
-                    style={{ background: "#00B900", border: "0px" }}
+                    style={{ background: "#00B900", border: "0px", color: "#fff", padding: "8px 16px", borderRadius: "4px", cursor: "pointer" }}
                   >
                     Line ID : @tawi
-                  </Button>
+                  </button>
                 </a>
               </AttributeNav>
             </>

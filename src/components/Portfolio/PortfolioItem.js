@@ -1,6 +1,7 @@
 import React from "react";
 // import ReactWow from "react-wow";
-import Icofont from "react-icofont";
+import Icofont from "../Icofont";
+import loadImage from "../../utils/imageLoader";
 
 const PortfolioItem = ({
   title,
@@ -34,7 +35,7 @@ const PortfolioItem = ({
             }
           >
             <div className="dark-overlay"></div>
-            <img src={require("../../assets/images/" + image)} alt="" />
+            <img src={loadImage(image)} alt={title} loading="lazy" />
             <div className="portfolio-wrap">
               <div className="portfolio-description">
                 <h3 className="portfolio-title">{title}</h3>
@@ -56,7 +57,7 @@ const PortfolioItem = ({
                   </a>
                 </li>
                 <li>
-                  <a href={require("../../assets/images/" + image)}>
+                  <a href={loadImage(image)}>
                     <Icofont icon="link-alt" />
                   </a>
                 </li>

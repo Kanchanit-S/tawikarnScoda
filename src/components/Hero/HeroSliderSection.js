@@ -1,19 +1,20 @@
 import React, { forwardRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
-import "swiper/components/effect-fade/effect-fade.min.css";
-import "swiper/components/navigation/navigation.min.css";
-import "swiper/components/pagination/pagination.min.css"
+import { EffectFade, Navigation, Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import parse from "html-react-parser";
 import SliderButtons from "../../elements/SliderButtons/SliderButtons";
-import SwiperCore, { EffectFade, Navigation, Autoplay, Pagination } from "swiper/core";
-SwiperCore.use([EffectFade, Navigation, Autoplay, Pagination]);
+import loadImage from "../../utils/imageLoader";
 
 const HeroSliderSection = forwardRef(({ data }, ref) => (
   <section className="pt-0 pb-0" id="home" ref={ref}>
     <div className="slider-bg flexslider">
       <ul className="slides">
         <Swiper
+          modules={[EffectFade, Navigation, Autoplay, Pagination]}
           navigation={true}
           pagination={{clickable: true}}
           loop={true}
@@ -26,9 +27,7 @@ const HeroSliderSection = forwardRef(({ data }, ref) => (
               <div
                 className="slide-img"
                 style={{
-                  background: `url(${
-                    require("../../assets/images/" + slide.image)
-                  }) center center / cover scroll no-repeat`,
+                  background: `url(${loadImage(slide.image)}) center center / cover scroll no-repeat`,
                 }}
               ></div>
               <div

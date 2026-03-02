@@ -1,5 +1,5 @@
 import React from "react";
-import Icofont from "react-icofont";
+import Icofont from "../Icofont";
 
 const ProductItem = ({ image, links, openLightbox, space }) => (
   <li

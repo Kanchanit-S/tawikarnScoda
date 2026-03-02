@@ -1,10 +1,7 @@
 import React, { forwardRef } from "react";
 import { useLax } from "../../helpers/use-lax";
-import img1 from "../../assets/images/food-img-5.png";
-import img2 from "../../assets/images/food-img-3.png";
-import img3 from "../../assets/images/food-img-4.png";
-import img4 from "../../assets/images/Tawikarn/abus_2.jpg";
-import img5 from "../../assets/images/Tawikarn/abus_1.jpg";
+import img4 from "../../assets/images/Tawikarn/abus_2.webp";
+import img5 from "../../assets/images/Tawikarn/abus_1.webp";
 
 const AboutRestaurant = forwardRef((props, ref) => {
   useLax();
@@ -103,7 +100,8 @@ const AboutRestaurant = forwardRef((props, ref) => {
                 <img
                   className="img-fluid"
                   src={img4}
-                  alt="food-img"
+                  alt="ผลงานทวิกานต์"
+                  loading="lazy"
                   data-aos={"fade-right"}
                   data-aos-delay={200}
                   data-aos-duration={700}
@@ -113,7 +111,8 @@ const AboutRestaurant = forwardRef((props, ref) => {
                 <img
                   className="img-fluid"
                   src={img5}
-                  alt="food-img"
+                  alt="ผลงานทวิกานต์"
+                  loading="lazy"
                   data-aos={"fade-left"}
                   data-aos-delay={200}
                   data-aos-duration={700}

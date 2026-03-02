@@ -1,6 +1,6 @@
 import React from "react";
 import dataSocial from "../../data/Social/social-footer.json";
-import Icofont from "react-icofont";
+import Icofont from "../Icofont";
 
 const FooterCopyright = () => (
   <div className="footer-copyright">

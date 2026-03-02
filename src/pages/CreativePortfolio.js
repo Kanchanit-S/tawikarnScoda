@@ -1,22 +1,18 @@
 import React from "react";
-import Loader from "./../components/Loader/Loader";
 import dataCreative from "../data/Slider/creative-portfolio-data.json";
 import dataPortfolio from "../data/Portfolio/portfolio-masonry.json";
 import HeaderOne from "../components/Header/HeaderOne";
 import HeroSliderCreative from "../components/Hero/HeroSliderCreative";
 import PortfolioMasonry from "../components/Portfolio/PortfolioMasonry";
-import CTAOne from "../components/CTA/CTAOne";
 import FooterOne from "../components/Footer/FooterOne";
-import WhoWeAreTwo from "../components/WhoWeAre/WhoWeAreOne";
 import ContactUs from "../components/ContactUs/ContactUs";
 import AboutRestaurant from "../components/AboutUs/AboutRestaurant";
 
-const   CreativePortfolio = ({ ref }) => (
-  <Loader>
+const CreativePortfolio = () => (
+  <>
     <HeaderOne />
     <HeroSliderCreative data={dataCreative} />
-    <AboutRestaurant/>
-    {/* <WhoWeAreTwo title="Who we are" tagline="The world at your fingertips"/> */}
+    <AboutRestaurant />
     <PortfolioMasonry
       filter="true"
       columns="3"
@@ -25,7 +21,7 @@ const   CreativePortfolio = ({ ref }) => (
     />
     <ContactUs />
     <FooterOne />
-  </Loader>
+  </>
 );
 
 export default CreativePortfolio;

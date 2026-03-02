@@ -1,14 +1,11 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
-import "swiper/components/navigation/navigation.min.css";
+import "swiper/css";
+import "swiper/css/navigation";
 import ReactTextRotator from "react-text-rotator";
-import logoTawi from "../../assets/images/Tawikarn/Logo.png";
-import styled from 'styled-components'
+import logoTawi from "../../assets/images/Tawikarn/Logo.webp";
 
-const OverlayBG = styled.div`
-  background: rgba(0, 0, 0, 0.5);
-`
+const heroImageUrl = `${process.env.PUBLIC_URL}/images/LandingPage.webp`;
 
 const HeroSliderCreative = ({ data }) => (
   <section className="pt-0 pb-0">
@@ -16,23 +13,30 @@ const HeroSliderCreative = ({ data }) => (
       <ul className="slides">
         <Swiper>
           {
-            <SwiperSlide key={data.id}>
-              <div
-                className="slide-img"
-                style={{
-                  background: `url(${require("../../assets/images/" +
-                    data.image)}) center center / cover scroll no-repeat`,
-                }}
-              ></div>
+            <SwiperSlide key={data.id} style={{ width: "100%" }}>
+              <div className="slide-img">
+                <img
+                  src={heroImageUrl}
+                  alt="ทวิกานต์ ร้านป้ายลพบุรี"
+                  fetchpriority="high"
+                  width="1920"
+                  height="1111"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
               <div
                 className={
                   "hero-text-wrap " + (data.bg ? "gradient-overlay-bg" : "")
                 }
               >
                 <div className="hero-text white-color">
-                  <OverlayBG>
+                  <div style={{ background: "rgba(0,0,0,0.5)" }}>
                     <div className="container text-left">
-                      <img src={logoTawi} style={{ maxHeight: "150px" }} />
+                      <img src={logoTawi} style={{ maxHeight: "150px" }} alt="ทวิกานต์" />
                       <h3 className="white-color font-400 letter-spacing-5">
                         {data.tagline}
                       </h3>
@@ -49,9 +53,9 @@ const HeroSliderCreative = ({ data }) => (
                         </div>
                       </h2>
                     </div>
-                    </OverlayBG>
                   </div>
                 </div>
+              </div>
             </SwiperSlide>
           }
         </Swiper>
