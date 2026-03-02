@@ -1,8 +1,13 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
+<<<<<<< Updated upstream
+import "swiper/css";
+=======
+import "swiper/swiper-bundle.css";
+>>>>>>> Stashed changes
 import parse from "html-react-parser";
 import SliderButtons from "../../elements/SliderButtons/SliderButtons";
+import loadImage from "../../utils/imageLoader";
 
 const HeroSliderSeven = ({ data }) => (
   <section className="pt-0 pb-0">
@@ -13,8 +18,7 @@ const HeroSliderSeven = ({ data }) => (
             <div
               className="slide-img"
               style={{
-                background: `url(${require("../../assets/images/" +
-                  data.image)}) center center / cover scroll no-repeat`,
+                background: `url(${loadImage(data.image)}) center center / cover scroll no-repeat`,
               }}
             ></div>
             <div

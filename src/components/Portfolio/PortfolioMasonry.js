@@ -1,11 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import PortfolioFilter from "../../elements/Portfolio/PortfolioFilter";
 import PortfolioItem from "./PortfolioItem";
 import Shuffle from "shufflejs";
 import ProductItem from "./ProductItem";
+import loadImage from "../../utils/imageLoader";
 
+const ITEMS_PER_PAGE = 12;
 
 const PortoflioSix = ({
   filter,
@@ -26,6 +28,7 @@ const PortoflioSix = ({
   ];
   const element = useRef();
   const [shuffle, setShuffle] = useState();
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
   const [isOpen, setIsOpen] = useState(false);
   const [photo, setPhoto] = useState(0);
@@ -41,16 +44,25 @@ const PortoflioSix = ({
 
   useEffect(() => {
     if (element.current) {
-      setShuffle(
-        new Shuffle(element.current, {
-          itemSelector: ".portfolio-item",
-        })
-      );
+      const instance = new Shuffle(element.current, {
+        itemSelector: ".portfolio-item",
+      });
+      setShuffle(instance);
       return () => {
-        element.current = {};
+        instance.destroy();
       };
     }
   }, []);
+
+  useEffect(() => {
+    if (shuffle) {
+      shuffle.resetItems();
+    }
+  }, [visibleCount, shuffle]);
+
+  const loadMore = useCallback(() => {
+    setVisibleCount((prev) => Math.min(prev + ITEMS_PER_PAGE, data.length));
+  }, [data.length]);
 
   const filterElements = (evt) => {
     const btn = evt.currentTarget;
@@ -59,10 +71,16 @@ const PortoflioSix = ({
       .forEach((e) => e.classList.remove("active"));
     evt.currentTarget.classList.add("active");
     const cat = btn.getAttribute("value");
-    shuffle.filter((element) => {
-      return element.getAttribute("data-groups").toLowerCase().includes(cat);
-    });
+    setVisibleCount(data.length);
+    setTimeout(() => {
+      shuffle.filter((element) => {
+        return element.getAttribute("data-groups").toLowerCase().includes(cat);
+      });
+    }, 100);
   };
+
+  const visibleData = data.slice(0, visibleCount);
+  const hasMore = visibleCount < data.length;
 
   return (
     <section className={classAppend ? classAppend : null} ref={ref}>
@@ -83,7 +101,7 @@ const PortoflioSix = ({
               }
             >
               {type === "masonry"
-                ? data.map((item) => (
+                ? visibleData.map((item) => (
                     <PortfolioItem
                       title={item.title}
                       category={item.category}
@@ -96,7 +114,7 @@ const PortoflioSix = ({
                       openLightbox={openLightbox}
                     />
                   ))
-                : data.map((item) => (
+                : visibleData.map((item) => (
                     <ProductItem
                       title={item.title}
                       category={item.category}
@@ -110,9 +128,22 @@ const PortoflioSix = ({
                     />
                   ))}
             </ul>
+            {hasMore && (
+              <button
+                className="btn btn-dark mt-30 mb-30"
+                onClick={loadMore}
+                style={{
+                  padding: "12px 40px",
+                  fontSize: "16px",
+                  borderRadius: "4px",
+                }}
+              >
+                ดูเพิ่มเติม ({data.length - visibleCount} รายการ)
+              </button>
+            )}
             {isOpen && (
               <Lightbox
-                mainSrc={require("../../assets/images/" + photo)}
+                mainSrc={loadImage(photo)}
                 onCloseRequest={() => closeLightbox()}
               />
             )}

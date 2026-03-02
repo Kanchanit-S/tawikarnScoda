@@ -1,25 +1,30 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
-import "swiper/components/effect-fade/effect-fade.min.css";
-import "swiper/components/navigation/navigation.min.css";
-import "swiper/components/pagination/pagination.min.css";
+<<<<<<< Updated upstream
+import { EffectFade, Navigation, Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+=======
+import "swiper/swiper-bundle.css";
 import SwiperCore, {
   EffectFade,
   Navigation,
   Autoplay,
   Pagination,
 } from "swiper/core";
-import "swiper/swiper-bundle.css";
+>>>>>>> Stashed changes
 import parse from "html-react-parser";
 import SliderButtons from "../../elements/SliderButtons/SliderButtons";
-SwiperCore.use([EffectFade, Navigation, Autoplay, Pagination]);
+import loadImage from "../../utils/imageLoader";
 
 const HeroSliderCombined = ({ data, font }) => (
   <section className="pt-0 pb-0">
     <div className="slider-bg flexslider">
       <ul className="slides">
         <Swiper
+          modules={[EffectFade, Navigation, Autoplay, Pagination]}
           pagination={{ clickable: true }}
           navigation
           loop={true}
@@ -33,8 +38,7 @@ const HeroSliderCombined = ({ data, font }) => (
                 <div
                   className="slide-img"
                   style={{
-                    background: `url(${require("../../assets/images/" +
-                      slide.image)}) center center / cover scroll no-repeat`,
+                    background: `url(${loadImage(slide.image)}) center center / cover scroll no-repeat`,
                   }}
                 ></div>
                 <div
@@ -87,20 +91,20 @@ const HeroSliderCombined = ({ data, font }) => (
                     <video autoPlay loop className="fillWidth">
                       {slide.videoMp4 && (
                         <source
-                          src={require("../../assets/images/" + slide.videoMp4)}
+                          src={loadImage(slide.videoMp4)}
                           type="video/mp4"
                         />
                       )}
                       {slide.videoWeb && (
                         <source
-                          src={require("../../assets/images/" + slide.videoWeb)}
+                          src={loadImage(slide.videoWeb)}
                           type="video/webm"
                         />
                       )}
                     </video>
                     <div className="poster hidden">
                       <img
-                        src={require("../../assets/images/" + slide.videoImage)}
+                        src={loadImage(slide.videoImage)}
                         alt="video-img"
                       />
                     </div>

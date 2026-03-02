@@ -5,7 +5,7 @@ import Loader from "../../components/Loader/Loader";
 import HeaderOne from "../../components/Header/HeaderOne";
 import PageTitleBlog from "../../components/PageTitle/PageTitleBlog";
 import SidebarForBlog from "../../components/Sidebar/SidebarForBlog";
-import Icofont from "react-icofont";
+import Icofont from "../../components/Icofont";
 import CommentsRespond from "../../components/Blog/CommentsRespond";
 
 const BlogStandard = ({ sidebar }) => {

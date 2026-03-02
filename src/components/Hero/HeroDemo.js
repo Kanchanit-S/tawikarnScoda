@@ -1,6 +1,6 @@
 import React from "react";
 import bgImg from "../../assets/images/background/parallax-bg-19.jpg";
-import tawikarnLogo from  "../../assets/images/Tawikarn/Logo.png";
+import tawikarnLogo from  "../../assets/images/Tawikarn/Logo.webp";
 const HeroDemo = () => {
   return (
     <section className="pt-0" id="demo-header-section">

@@ -30,7 +30,7 @@
     "react-masonry-css": "^1.0.16",
     "react-move": "^6.1.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^2.1.8",
+    "react-scripts": "^5.0.1",
     "react-scrollspy": "^3.4.2",
     "react-slick": "^0.28.1",
     "react-tabs": "^3.1.0",
@@ -40,11 +40,12 @@
     "shufflejs": "^5.2.3",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.0",
-    "swiper": "^6.6.1",
+    "swiper": "^12.1.2",
     "use-lax": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "react-scripts start --env-file=.env.development",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

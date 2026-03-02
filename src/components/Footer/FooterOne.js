@@ -1,5 +1,5 @@
 import React from "react";
-import logoFooter from "../../assets/images/Tawikarn/Logo.png";
+import logoFooter from "../../assets/images/Tawikarn/Logo.webp";
 import FooterCopyright from "./FooterCopyright";
 
 const FooterOne = () => (
@@ -16,7 +16,8 @@ const FooterOne = () => (
                       className="logo logo-display"
                       src={logoFooter}
                       style={{maxHeight: '100px'}}
-                      alt=""
+                      alt="ทวิกานต์"
+                      loading="lazy"
                     />
                   </a>
                   <p>
