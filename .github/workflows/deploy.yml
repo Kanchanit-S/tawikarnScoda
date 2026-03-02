@@ -19,7 +19,7 @@ jobs:
           node-version: 17
 
       - name: 📦 Install dependencies
-        run: npm ci --force
+        run: npm i --force
 
       - name: 🔄 Audit Fix
         run: npm audit fix
