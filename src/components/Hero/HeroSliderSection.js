@@ -1,14 +1,7 @@
 import React, { forwardRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-<<<<<<< Updated upstream
 import { EffectFade, Navigation, Autoplay, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-=======
-import "swiper/swiper-bundle.css"
->>>>>>> Stashed changes
+import "swiper/swiper-bundle.css";
 import parse from "html-react-parser";
 import SliderButtons from "../../elements/SliderButtons/SliderButtons";
 import loadImage from "../../utils/imageLoader";
