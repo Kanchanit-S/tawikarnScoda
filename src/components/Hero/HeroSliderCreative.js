@@ -1,7 +1,11 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+<<<<<<< Updated upstream
 import "swiper/css";
 import "swiper/css/navigation";
+=======
+import "swiper/swiper-bundle.css";
+>>>>>>> Stashed changes
 import ReactTextRotator from "react-text-rotator";
 import logoTawi from "../../assets/images/Tawikarn/Logo.webp";
 

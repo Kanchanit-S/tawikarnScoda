@@ -1,6 +1,10 @@
 import React, { forwardRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+<<<<<<< Updated upstream
 import "swiper/css";
+=======
+import "swiper/swiper-bundle.css";
+>>>>>>> Stashed changes
 import SliderButtons from "../../elements/SliderButtons/SliderButtons";
 import loadImage from "../../utils/imageLoader";
 
