@@ -1,18 +1,9 @@
 import React from "react";
-import dataBlog from "../../data/Blog/blog-data.json";
-import dataSocial from "../../data/Social/social-data.json";
 import Loader from "../../components/Loader/Loader";
 import HeaderOne from "../../components/Header/HeaderOne";
 import PageTitleBlog from "../../components/PageTitle/PageTitleBlog";
-import SidebarForBlog from "../../components/Sidebar/SidebarForBlog";
-import Icofont from "../../components/Icofont";
-import CommentsRespond from "../../components/Blog/CommentsRespond";
 
-const BlogStandard = ({ sidebar }) => {
-  const postId = new URLSearchParams(window.location.search).get("id");
-  const post = dataBlog.find((post) => post.id === parseInt(postId));
-  const featuredPost = dataBlog.find((post) => post.id === 1);
-
+const BlogStandard = () => {
   return (
     <Loader>
       <HeaderOne />

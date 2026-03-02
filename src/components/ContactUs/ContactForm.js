@@ -1,14 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import LineLogo from "../../assets/images/LINE_Brand_icon.webp";
 import facebookLogo from "../../assets/images/Facebook_Logo_2019.webp";
+
 const ContactForm = ({ title, tagline }) => {
-  const [inputs, setInputs] = useState({});
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setInputs({ ...inputs, [name]: value });
-  };
-
   return (
     <>
       {title && (
